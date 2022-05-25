@@ -1,0 +1,20 @@
+from Crypto.Cipher import AES
+from Crypto.Util import Counter
+import os
+
+KEY = os.urandom(16)
+
+def encrypt(plaintext):
+    cipher = AES.new(KEY, AES.MODE_CTR, counter=Counter.new(128))
+    ciphertext = cipher.encrypt(plaintext)
+    return ciphertext.hex()
+
+test = b"No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attack upon his honour and reputation."
+print(encrypt(test))
+
+with open('flag.txt', 'rb') as f:
+    flag = f.read().strip()
+print(encrypt(flag))
+
+# 79699492aff79217f93643edab98fa9d154a073d8b9d8f0550a2737229e012ee3807e658352ca6694762344e0807bf03032ce818a4b9362b0a3a8ddb705b18f6283006113693561248bde51bb9e5a0d16d27332fff1530b1496025cbdc4263c36aceeb7adc32f1fcf960358f607ba5c2d66697c9e8f7180f69f7e923877121b2d9b5ff77401504b2d93ef5aa0547b9f52adcb0
+# 56358cc5a2f3d002a3344db7edccad85570603338aca9e5850e7377b3ce757ef3016a70d7233b0321e2f65590d07fb04

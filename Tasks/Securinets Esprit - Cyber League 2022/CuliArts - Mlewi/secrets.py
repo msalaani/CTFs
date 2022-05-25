@@ -1,0 +1,1 @@
+flag = b"_M3r5enNe_kN0ws_H0w_T0_RoOll_Ml3w1!W4iT_175_n0t_S0s_N4m3_It's_Mersenne_Twister!!_"

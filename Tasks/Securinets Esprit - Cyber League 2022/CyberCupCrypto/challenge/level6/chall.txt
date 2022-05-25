@@ -1,0 +1,11 @@
+from Crypto.Util.number import *
+from flag import flag
+
+l = len(flag)
+m_1, m_2 = flag[: l // 2], flag[l // 2:]
+
+x, y = bytes_to_long(m_1), bytes_to_long(m_2)
+
+k = 0x3ff35d81fd6c0d85e6b3e2ed05410572dbaa271a93c09c3395d7450833cecccc48bcd32efca43a9c47d3233450e5119f0416b0f3abe75df8d04a4e88628a18c77354166c931c81ee333c06ff16853f4158a1dd3d99152729fcce2720b0e30736d5baa68cbfce3b3f1044355ce2442b72a32b4f1f46ed1e4
+
+assert x**2 * y**2 + 2*x**2 * y - 2*x * y**2 + x**2 - 4*x*y + y**2 - 2*x + 2*y + 1 == k
